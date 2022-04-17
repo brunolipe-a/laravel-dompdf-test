@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.text-8xl {
+  font-size: 8rem;
+}
+
+.transform-center-rotate-315 {
+  transform: translate(-50%, -50%) rotate(315deg);
+}
+
+.top-half {
+  top: 50%;
+}
+
+.left-half {
+  left: 50%;
+}

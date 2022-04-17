@@ -1,5 +1,6 @@
 <?php
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $reproved = request()->has('reproved');
+
+    return view('pdf.invoice', compact('reproved'));
+});
+
+Route::get('pdf', function () {
+    $reproved = request()->has('reproved');
+
+    return Pdf::loadView('pdf.invoice', compact('reproved'))->stream('invoice.pdf');
 });
