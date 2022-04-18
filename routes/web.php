@@ -21,7 +21,16 @@ Route::get('/', function () {
 });
 
 Route::get('pdf', function () {
-    $reproved = request()->has('reproved');
+    // $reproved = request()->has('reproved');
 
-    return Pdf::loadView('pdf.invoice', compact('reproved'))->stream('invoice.pdf');
+    $json = json_decode(file_get_contents(storage_path('reportPrimary2022-04-18625d67686222c.json')));
+
+    $extraData = $json->reports->DadosAdicionais;
+    $data = collect($json->reports->data)->take(50);
+
+    // dd($extraData, $data);
+
+    // return view('pdf.invoice', compact('data', 'extraData'), ['pdf' => false]);
+
+    return Pdf::loadView('pdf.invoice', compact('data', 'extraData'))->stream('invoice.pdf');
 });

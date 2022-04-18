@@ -11,10 +11,50 @@
   transform: translate(-50%, -50%) rotate(315deg);
 }
 
+.border-1 {
+  border-width: 1.5px;
+}
+
+.border-b-1 {
+    border-bottom-width: 1.5px;
+}
+
 .top-half {
   top: 50%;
 }
 
 .left-half {
   left: 50%;
+}
+
+
+tr.rounded-corners th {
+    border: 1.5px solid #000;
+    border-left-width: 0;
+    border-right-width: 0;
+    @apply font-normal
+}
+
+tr.rounded-corners th:first-child  {
+    border-left-width: 1.5px;
+    @apply rounded-l-md
+}
+
+tr.rounded-corners th:last-child {
+    border-right-width: 1.5px;
+    @apply rounded-r-md
+}
+
+tr.rounded-corners td:first-child {
+    border-left-width: 1.5px;
+    @apply rounded-l-md
+}
+
+tr.rounded-corners td:last-child {
+    border-right-width: 1.5px;
+    @apply rounded-r-md
+}
+
+tr.border-dashed th {
+    border-style: dashed;
 }

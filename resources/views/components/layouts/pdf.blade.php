@@ -1,31 +1,29 @@
-@props(['styles' => null, 'scripts' => null])
+@props(['styles' => null, 'scripts' => null, 'size' => 'a4', 'margin' => '5em', 'fontSize' => '12px'])
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="css/app.css" rel="stylesheet" type="text/css">
   <title>Document</title>
   <style>
+    @page {
+      size: {{ $size }};
+    }
+
     html {
       margin: 0;
       padding: 0;
-    }
-
-    @media screen {
-      body {
-        margin: 5em
-      }
+      font-size: {{ $fontSize }};
     }
 
     body {
-      font: 15px;
+      margin: {{ $margin }}
     }
 
   </style>
   {{ $styles }}
-  {{ $scripts }}
 </head>
 
 <body class="relative">
