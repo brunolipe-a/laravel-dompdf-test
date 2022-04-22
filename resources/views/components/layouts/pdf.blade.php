@@ -1,4 +1,4 @@
-@props(['styles' => null, 'scripts' => null, 'size' => 'a4', 'margin' => '5em', 'fontSize' => '12px'])
+@props(['styles' => null, 'size' => 'a4', 'pdf' => true])
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -15,18 +15,15 @@
     html {
       margin: 0;
       padding: 0;
-      font-size: {{ $fontSize }};
-    }
-
-    body {
-      margin: {{ $margin }}
+      font-size: {{ $pdf ? '12px' : '16px' }};
     }
 
   </style>
   {{ $styles }}
 </head>
 
-<body class="relative">
+<body {{ $attributes->class('relative') }}>
+  <x-pdf.footer />
   {{ $slot }}
 </body>
 

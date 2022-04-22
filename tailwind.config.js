@@ -5,7 +5,11 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontSize: {
+                xss: ".6rem",
+            },
+        },
     },
     plugins: [require("@tailwindcss/typography")],
 };

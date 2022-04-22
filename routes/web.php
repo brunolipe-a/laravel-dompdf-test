@@ -34,3 +34,25 @@ Route::get('pdf', function () {
 
     return Pdf::loadView('pdf.invoice', compact('data', 'extraData'))->stream('invoice.pdf');
 });
+
+Route::get('sale-order', function () {
+    // $reproved = request()->has('reproved');
+
+    $json = json_decode(file_get_contents(storage_path('RelatorioPedidoVenda2022-04-18625d69d6f0f4d.json')));
+
+    $extraData = $json->reports->DadosAdicionais;
+    $order = $json->reports->data->fatherOrder;
+    $products = collect($json->reports->data->fatherOrder->products);
+
+    // $order->tax_observation = Faker\Factory::create()->words(400, true);
+
+    // $products = $products->merge($products);
+
+    // dd($extraData, $products, $order);
+
+    // dd($extraData, $data);
+
+    // return view('pdf.sale-order', compact('extraData', 'products', 'order'), ['pdf' => false]);
+
+    return Pdf::loadView('pdf.sale-order', compact('extraData', 'products', 'order'))->stream('sale-order.pdf');
+});

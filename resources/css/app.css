@@ -3,36 +3,24 @@
 @tailwind utilities;
 
 
-.text-8xl {
-  font-size: 8rem;
-}
-
-.transform-center-rotate-315 {
-  transform: translate(-50%, -50%) rotate(315deg);
-}
-
-.border-1 {
-  border-width: 1.5px;
-}
-
-.border-b-1 {
-    border-bottom-width: 1.5px;
-}
-
-.top-half {
-  top: 50%;
-}
-
-.left-half {
-  left: 50%;
-}
-
-
 tr.rounded-corners th {
-    border: 1.5px solid #000;
+    border-width: 1.5px;
+    border-color: #a8a8a8;
     border-left-width: 0;
     border-right-width: 0;
     @apply font-normal
+}
+
+tr.rounded-corners.with-lines th {
+    border-right-width: 1.5px;
+    @apply font-bold
+}
+
+tr.rounded-corners td {
+    border-width: 1.5px;
+    border-color: #a8a8a8;
+    border-left-width: 0;
+    border-right-width: 1.5px;
 }
 
 tr.rounded-corners th:first-child  {
@@ -55,6 +43,54 @@ tr.rounded-corners td:last-child {
     @apply rounded-r-md
 }
 
-tr.border-dashed th {
-    border-style: dashed;
+table.striped  tbody tr:nth-child(odd) {
+    background-color: #cfcfcf;
+}
+
+tr.border-dotted th {
+    border-style: dotted;
+}
+
+.text-8xl {
+  font-size: 8rem;
+}
+
+.transform-center-rotate-315 {
+  transform: translate(-50%, -50%) rotate(315deg);
+}
+
+.border-1 {
+  border-width: 1.5px;
+}
+
+.border-b-1 {
+    border-bottom-width: 1.5px;
+}
+
+.border-default {
+ border-color: #a8a8a8;
+}
+
+.top-half {
+  top: 50%;
+}
+
+.left-half {
+  left: 50%;
+}
+
+.page-footer {
+    @apply fixed bottom-0 left-0 right-0 pb-8 mx-8 border-t;
+    border-color: #000;
+}
+
+.page-number:before {
+    content: "Página " counter(page);
+    font-style: italic;
+}
+
+.container-between::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
 }
